@@ -1,62 +1,68 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
-import MyContainer from '../components/MyContainer'
-import styles from '../styles/Home.module.css'
+import About from '../components/About/About'
+import Hero from '../components/Hero/Hero'
+import MyContainer from '../components/MyContainer/MyContainer'
+import Projects from '../components/Projects/Projects'
+import Skills from '../components/Skills/Skills'
+import { IPortfolioMainPage, IProject } from '../contentful'
+import { client } from '../contentfull'
 
 
-type HomePropsType = {
-  users: UserType[]
+type HomePagePropsType = {
+  homePage: IPortfolioMainPage
+  projects: IProject[]
 }
-const Home: NextPage<HomePropsType> = ({ users }) => {
+const HomePage: NextPage<HomePagePropsType> = ({ projects, homePage }) => {
   return (
-    <MyContainer title='React Home Page'>
-      <main className={styles.main}>
-        <ul className={styles.users__list}>
-          {users.map((user: UserType) => <li key={user.id} className={styles.users__list__item}>Name : <Link href={`/users/${user.id}`}><a className={styles.user__name__link}>{user.name} </a></Link></li>)}
-        </ul>
-      </main>
+    <MyContainer links={homePage.fields.links} copyright={homePage.fields.copyright}>
+      <>
+        <Hero
+          heroDescription={homePage.fields.heroDescription}
+          telegramLink={homePage.fields.links?.telegram}
+          gitHubLink={homePage.fields.links?.github}
+          developerName={homePage.fields.developerName}
+        />
+        <Skills skills={homePage.fields.skillsItem} />
+        <Projects
+          projects={projects}
+        />
+        <About
+          aboutParagraphBig={homePage.fields.aboutParagraphBig}
+          aboutParagraphMedium={homePage.fields.aboutParagraphMedium}
+          aboutParagraphSmall={homePage.fields.aboutParagraphSmall}
+          email={homePage.fields.links?.email}
+          developerName={homePage.fields.developerName}
+          socialLinkName={homePage.fields.socialLinkName}
+          socialLink={homePage.fields.socialLink}
+          role={homePage.fields.role}
+          aboutImage={homePage.fields.aboutImage}
+          socialLinkDisplayedName={homePage.fields.socialLinkDisplayedName} />
+      </>
     </MyContainer>
   )
 }
 
 export async function getStaticProps() {
-  // Call an external API endpoint to get posts
-  const res = await fetch('https://jsonplaceholder.typicode.com/users')
-  const users = await res.json()
+  const home = await client.getEntries<IPortfolioMainPage>({
+    content_type: "portfolioMainPage",
+  })
+  const projectsEntries = await client.getEntries<IProject>({
+    content_type: "project",
+    select: ['fields.projectName', 'fields.projectSlug', 'fields.projectThumbNail', 'fields.projectDescription', 'fields.hoverDescription'],
+    limit:100,
 
+  })
+  const [homePage] = home.items
+  const projects = projectsEntries.items
+  
   return {
     props: {
-      users,
+      homePage,
+      projects,
     },
+    revalidate: 10,
   }
 }
 
-export type UserType = {
-
-  "id": number
-  "name": string
-  "username": string
-  "email": string
-  "address": {
-    "street": string
-    "suite": string
-    "city": string
-    "zipcode": string
-    "geo": {
-      "lat": string
-      "lng": string
-    }
-  },
-  "phone": string
-  "website": string
-  "company": {
-    "name": string
-    "catchPhrase": string
-    "bs": string
-
-  }
-}
-export default Home
+export default HomePage
 

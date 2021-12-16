@@ -1,0 +1,114 @@
+.hero {
+    &__wrapper {
+        margin: 0 auto;
+        max-width: 1440px;
+    }
+    &__inner {
+        position: relative;
+        z-index: 1;
+        padding-top: 185px;
+        padding-bottom: 120px;
+    }
+    &__box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 45px;
+    }
+    &__title {
+        font-size: 100px;
+        line-height: 125px;
+        font-weight: bold;
+    }
+    &__contact {
+        max-width: 570px;
+        padding-left: 65px;
+        border-left: 1px solid rgba(#d8d8d8, 0.6);
+    }
+}
+
+// media
+@media (max-width: 1080px) {
+    .hero__title {
+        font-size: 80px;
+        line-height: 100px;
+    }
+    .hero__contact {
+        padding-left: 36px;
+    }
+}
+
+@media (max-width: 975px) {
+    .hero__title {
+        font-size: 66px;
+        line-height: 86px;
+    }
+    .hero__contact {
+        padding-left: 28px;
+    }
+}
+
+@media (max-width: 910px) {
+    .hero__title {
+        font-size: 56px;
+        line-height: 80px;
+    }
+    .hero__contact {
+        padding-left: 28px;
+    }
+}
+
+@media (max-width: 870px) {
+    .hero__box {
+        flex-direction: column;
+    }
+    .hero__title {
+        font-size: 100px;
+        line-height: 86px;
+        margin-bottom: 35px;
+    }
+    .hero__contact {
+        padding-left: 0;
+        padding-top: 35px;
+        border-left: transparent;
+        border-top: 1px solid rgba(#fff, 0.7);
+    }
+}
+
+@media (max-width: 730px) {
+    .hero__box {
+        max-width: 80%;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 666px) {
+    .hero__title {
+        font-size: 77px;
+        line-height: 98px;
+        margin-bottom: 25px;
+    }
+}
+
+@media (max-width: 610px) {
+    .hero__inner {
+        padding-top: 140px;
+    }
+    .hero__box {
+        max-width: 90%;
+    }
+    .hero__contact {
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    .hero__box {
+        max-width: 100%;
+    }
+    .hero__title {
+        font-size: 62px;
+        line-height: 82px;
+    }
+}

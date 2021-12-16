@@ -1,0 +1,104 @@
+.header {
+    &.fixed .header__inner {
+        padding: 5px 0;
+    }
+    &__inner {
+        padding: 10px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__settings {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__burger {
+        display: none;
+        position: relative;
+        height: 42px;
+        width: 60px;
+        &.active .header__burger_item__1,
+        &.active .header__burger_item__4 {
+            opacity: 0;
+        }
+        &.active .header__burger_item__2 {
+            transform: translateY(-50%) rotate(45deg);
+        }
+        &.active .header__burger_item__3 {
+            transform: translateY(-50%) rotate(-45deg);
+        }
+    }
+}
+
+@keyframes headerFixed {
+    0% {
+        opacity: 0;
+        box-shadow: 0px -3px 12px 1px #fff;
+    }
+    100% {
+        opacity: 1;
+        box-shadow: 0px -1px 11px 2px #fff;
+    }
+}
+
+// media
+@media (max-width: 930px) {
+    .header__burger {
+        display: block;
+    }
+    .header__nav {
+        width: 50vw;
+        position: fixed;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #222222;
+        box-shadow: -1px -1px 11px 2px #fff;
+        transform: translateX(1000px);
+        transition: all, 0.45s;
+        &.active {
+            transform: translateX(0);
+        }
+    }
+    .header__list {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 666px) {
+    .header__nav {
+        width: 100vw;
+    }
+}
+
+@media (max-width: 440px) {
+    .header__theme {
+        margin-right: 36px;
+    }
+}
+
+@media (max-width: 400px) {
+    .header__theme {
+        margin-right: 28px;
+    }
+}
+
+@media (max-width: 380px) {
+    .header__theme {
+        margin-right: 22px;
+    }
+}
+
+@media (max-width: 340px) {
+    .header__theme {
+        margin-right: 10px;
+    }
+}
