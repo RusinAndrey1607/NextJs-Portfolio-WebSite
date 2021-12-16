@@ -10,7 +10,7 @@ const ProjectHero:React.FC<ProjecgtHeroPropsType> = ({projectCodeLink, projectHo
     return (
         <div className={styles.project_hero}>
         <div className={styles.project_hero__inner}>
-          <a className={styles.project_hero__code} target="_blank" href={projectCodeLink}>
+          <a className={styles.project_hero__code} target="_blank" rel='noreferrer' href={projectCodeLink}>
             <div className={styles.project_hero__info}>
               <div className={styles.project_hero__title}>Code</div>
               <p className={styles.project_hero__paragraph}>repository git</p>
@@ -84,7 +84,7 @@ const ProjectHero:React.FC<ProjecgtHeroPropsType> = ({projectCodeLink, projectHo
             </div>
           </div>
           <p className={styles.project_hero__scroll_text}>scroll down</p>
-          <a className={styles.project_hero__host} target="_blank"  href={projectHostingLink}>
+          <a className={styles.project_hero__host} target="_blank" rel='noreferrer'  href={projectHostingLink}>
             <div className={styles.project_hero__info}>
               <div className={styles.project_hero__title}>Host</div>
               <p className={styles.project_hero__paragraph}>working website</p>

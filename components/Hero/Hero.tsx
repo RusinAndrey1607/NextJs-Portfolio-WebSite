@@ -30,8 +30,8 @@ const Hero:React.FC<HeroPropsType> = ({heroDescription, telegramLink ,gitHubLink
                                     {heroDescription}
                                 </HeroParagraph>
                                 <div className={styles.hero__social}>
-                                    <HeroLink target='_blank' href={telegramLink}>Telegram</HeroLink>
-                                    <HeroLink href={gitHubLink} target='_blank' >GitHub</HeroLink>
+                                    <HeroLink target='_blank' rel='noreferrer' href={telegramLink}>Telegram</HeroLink>
+                                    <HeroLink href={gitHubLink} target='_blank' rel='noreferrer' >GitHub</HeroLink>
                                 </div>
                             </div>
                         </div>
