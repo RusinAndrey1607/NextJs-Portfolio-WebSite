@@ -22,7 +22,7 @@ const Hero:React.FC<HeroPropsType> = ({heroDescription, telegramLink ,gitHubLink
                             <h1 className={styles.hero__title}>
                                 Hello
                                 <br />
-                                I'm {developerName}
+                                I&apos;m {developerName}
                                 <br />
                             </h1>
                             <div className={styles.hero__contact}>
