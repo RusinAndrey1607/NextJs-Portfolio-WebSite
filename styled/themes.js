@@ -4,7 +4,7 @@ import lightIcon from './../images/icon/white-theme.svg'
 // This object is the equivalent of the styles for the Dark theme.
 export const dark = {
     scroolBody: "#3c3b3a",
-    scroolButton: "",
+    scroolButton: "#181818",
     body: "#222222",
     fontColor: "#faf4e6",
     headerButtonImage: `url(${lightIcon})`,

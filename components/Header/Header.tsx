@@ -38,7 +38,14 @@ const Header = () => {
             window.removeEventListener('scroll', headerProjectFixed)
         }
     }, [])
+    useEffect(() =>{
+        if (isActive){
+            document.body.style.overflowY = "hidden"
+        }else{
+            document.body.style.overflowY = ""
 
+        }
+    },[isActive])
     return (
         // @ts-ignore
         <StyledHeader ref={headerRef}>
