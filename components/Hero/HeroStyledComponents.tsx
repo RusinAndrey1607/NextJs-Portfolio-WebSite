@@ -121,7 +121,7 @@ export const HeroLink = styled.a`
 `
 export const Button = styled.div`
     display: inline-block;
-    background-color:${props => props.theme.hero.btn};
+    background-color:${props => props.theme.contact.background};
     transition: background-color, 0.45s;
     @media (max-width: 870px){
         position: absolute;
@@ -156,7 +156,7 @@ export const ButtonLink = styled.a`
 
     &:hover {
         opacity: 1;
-        box-shadow: 0px 0px 11px 2px ${props => props.theme.hero.btn};
+        box-shadow: 0px 0px 11px 2px ${props => props.theme.hero.btnShadow};
     }
 
     @media (max-width: 450px) {

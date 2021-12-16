@@ -26,12 +26,15 @@ display: grid;
         }
 `
 export  const ItemTitle = styled.h5`
-white-space: nowrap;
+        white-space: nowrap;
         font-weight: 600;
         font-size: 56px;
         line-height: 56px;
-        opacity: 0.6;
+        opacity: ${props => props.theme.skills.opacity};
         transition: all, 0.45s;
+        &:hover{
+          opacity: 1;
+        }
         @media (max-width: 900px) {
           font-size: 48px;
         line-height: 48px;

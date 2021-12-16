@@ -33,6 +33,44 @@ const FormInputWrapper = styled.div`
     border-bottom: 2px solid ${props => props.theme.header.color};
 
 `
+const FormTextArea = styled.textarea`
+        margin-top: 10px;
+        width: 100%;
+        max-height: 100%;
+        height: 200px;
+        padding: 10px;
+        border:none;
+        border-bottom: 2px solid ${props => props.theme.header.color};
+        font-size: 20px;
+        color: inherit;
+        resize: none;
+        background-color: transparent;
+        transition: all, 0.45s;
+        &:focus-visible {
+            outline: none;
+            /* border-bottom: none; */
+            box-shadow: 0 0 5px 2px #fff;
+        }
+        // custom scroll
+        &::-webkit-scrollbar {
+            z-index: 10;
+            width: 6px;
+            height: 0;
+            background: #3c3b3a;
+            mix-blend-mode: normal;
+            opacity: 0.55;
+        }
+        &::-webkit-scrollbar-button {
+            display: none;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 6px;
+            background-color: #181818;
+        }
+        &::placeholder {
+            color: inherit;
+        }
+`
 const ContactFormWrapper = styled.div` 
     padding: 30px 0 30px 10px;
     width: 50%;
@@ -105,14 +143,13 @@ const FeedBackForm:React.FC<FeedBackPropsType> = ({setActive}) => {
 
                 <label className={styles.form__label}>
                     Message
-                    <FormInputWrapper>
 
-                        <textarea
-                            className={styles.form__message}
+                        <FormTextArea
+                            // className={styles.form__message}
                             {...register("message", { required: "Thist Field is required", minLength: { value: 10, message: "Min length is 10 symbols" } })}
                             placeholder="Enter your message"
-                        ></textarea>
-                    </FormInputWrapper>
+                        ></FormTextArea>
+                   
                     <div className={styles.error}>{errors.message && errors.message.message}</div>
 
                 </label>

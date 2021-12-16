@@ -42,6 +42,7 @@ export const GlobalStyles = createGlobalStyle `
     }
 
     img {
+        width: 100%;
         max-width: 100%;
         display: block;
     }
@@ -85,7 +86,7 @@ export const GlobalStyles = createGlobalStyle `
             z-index: 10;
             width: 11px;
             height: 0;
-            background: #3c3b3a;
+            background: ${(props) => props.theme.scroolBody};
             mix-blend-mode: normal;
             opacity: 0.55;
         }
@@ -94,7 +95,7 @@ export const GlobalStyles = createGlobalStyle `
         }
         &::-webkit-scrollbar-thumb {
             border-radius: 6px;
-            background-color: #181818;
+            background-color: ${(props) => props.theme.scroolButton};
         }
     }
 
