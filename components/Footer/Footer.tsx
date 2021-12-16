@@ -37,7 +37,7 @@ const Footer: React.FC<FooterPropsType> = ({ links, copyright }) => {
             { links && Object.keys(links).map(link => (
               <li key={link} className={styles.footer__contact__item}>
                 {/* @ts-ignore */}
-                <a className={styles.footer__link} href={`${links[link]}`} target='_blank'>{link}</a>
+                <a className={styles.footer__link} href={`${links[link]}`} rel='noreferrer' target='_blank'>{link}</a>
               </li>
             ))}
 
