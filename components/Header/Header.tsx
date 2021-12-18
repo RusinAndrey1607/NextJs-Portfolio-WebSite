@@ -56,25 +56,25 @@ const Header = () => {
                     </div>
                     <HeaderNav active={isActive}>
                         <ul className={styles.header__list} >
-                            <HeaderItem onClick={() => setIsActive(!isActive)} >
+                            <HeaderItem onClick={() => setIsActive(false)} >
                             <Link href="/#home">
                                     <CusstomLink >Home</CusstomLink>
 
                                 </Link>
                             </HeaderItem>
-                            <HeaderItem onClick={() => setIsActive(!isActive)} >
+                            <HeaderItem onClick={() => setIsActive(false)} >
                             <Link href="/#projects">
                                     <CusstomLink >Projects</CusstomLink>
 
                                 </Link>
                             </HeaderItem>
-                            <HeaderItem onClick={() => setIsActive(!isActive)} >
+                            <HeaderItem onClick={() => setIsActive(false)} >
                                 <Link href="/#about">
                                     <CusstomLink >About</CusstomLink>
 
                                 </Link>
                             </HeaderItem>
-                            <HeaderItem onClick={() => setIsActive(!isActive)} >
+                            <HeaderItem onClick={() => setIsActive(false)} >
                                 <Link href="#contact">
                                     <CusstomLink >Contact</CusstomLink>
 
